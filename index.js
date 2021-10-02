@@ -13,24 +13,4 @@ const fs = require('fs');
 
 // each Employee created will become a card. 
 
-class Employee {
-    // Just like constructor functions, classes can accept arguments
-    constructor(name, ID, email) {
-        this.name = name;
-        this.ID = ID;
-        this.email = email;
-    }
 
-    getName() {
-        console.log(`Name: ${this.name}`);
-    }
-    getID() {
-        console.log(`ID: ${this.ID}`);
-    }
-    getEmail() {
-        console.log(`Email: ${this.email}`);
-    }
-    getRole() {
-        return "Employee";
-    }
-}
