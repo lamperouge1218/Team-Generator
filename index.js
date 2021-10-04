@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+// const generateHTML = require("./src/generateHTML");
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
@@ -8,6 +9,8 @@ const Manager = require("./lib/Manager");
 // add validation to each prompt to ensure proper user input
 
 // each Employee created will become a card. 
+
+const teamMemberArray = [];
 
 const employeePrompt = [
     {
@@ -94,8 +97,45 @@ const employeePrompt = [
 
     {
         type: "confirm",
-        name: "confirmAddEmployee",
         message: "Would you like to add more team members?",
+        name: "confirmAddEmployee",
         default: false,
-      },    
+    },
 ]
+
+const addEmployee = () => {
+    return inquirer
+        .prompt(employeePrompt)
+        .then(employeeInfo => {
+            let { role, name, id, email, officeNumber, gitHub, school, confirmAddEmployee } = employeeInfo
+            let employee;
+            switch (role) {
+                case "Manager":
+                    employee = new Manager(name, id, email, officeNumber);
+                    console.log(employee);
+                    break;
+                case "Engineer":
+                    employee = new Engineer(name, id, email, gitHub);
+                    console.log(employee);
+                    break;
+
+                case "Intern":
+                    employee = new Intern(name, id, email, school);
+                    console.log(employee);
+                    break;
+
+                default:
+                    break;
+            }
+
+            teamMemberArray.push(employee);
+
+            if (confirmAddEmployee) {
+                return addEmployee();
+            } else {
+                return console.log(teamMemberArray);
+            }
+        })
+}
+
+addEmployee();
