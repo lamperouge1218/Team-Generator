@@ -107,7 +107,7 @@ const addEmployee = () => {
     return inquirer
         .prompt(employeePrompt)
         .then(employeeInfo => {
-            let { role, name, id, email, officeNumber, gitHub, school, confirmAddEmployee } = employeeInfo
+            let { role, name, id, email, officeNumber, gitHub, school, confirmAddEmployee } = employeeInfo;
             let employee;
             switch (role) {
                 case "Manager":
@@ -137,5 +137,6 @@ const addEmployee = () => {
             }
         })
 }
+
 
 addEmployee();

@@ -1,0 +1,12 @@
+.meetTeam {
+    font-family: 'Gemunu Libre', sans-serif;
+    font-weight: 600;
+}
+
+h4, h5, h6, p, a {
+    font-family: 'Montserrat', sans-serif;;
+}
+
+.card {
+    margin: 10px;
+}

@@ -8,18 +8,64 @@
     <title>Team Profile</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;600;700&family=Montserrat:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <header>
-        <div class="jumbotron jumbotron-fluid text-center">
+        <div class="jumbotron jumbotron-fluid text-center bg-danger">
             <div class="container">
-              <h1 class="display-4">Meet the Team!</h1>
-              
+                <h1 class="display-4 meetTeam">Meet the Team!</h1>
+
             </div>
-          </div>
+        </div>
     </header>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="card text-center bg-info" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">${employee.name}</h4>
+                    <h5 class="card-subtitle mb-2 text-warning">${employeeInfo.role}</h5>
+                    <h6 class="card-subtitle mb-2 text-dark">ID: ${employee.id}</h6>
+                    <p class="card-text">Office Number: ${employee.officeNumber}</p>
+                    <a href="mailto:${employee.email}" class="card-link text-dark">Email: ${employee.email}</a>
+                </div>
+            </div>
+
+            <div class="card text-center bg-success" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">${employee.name}</h4>
+                    <h5 class="card-subtitle mb-2 text-warning">${employeeInfo.role}</h5>
+                    <h6 class="card-subtitle mb-2 text-dark">ID: ${employee.id}</h6>
+                    <a href="https://github.com/${employee.gitHub}" target="_blank" class="text-dark">GitHub: ${employee.gitHub}</a>
+                    <a href="mailto:${employee.email}" class="text-dark">Email: ${employee.email}</a>
+                </div>
+            </div>
+
+            <div class="card text-center bg-secondary" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">${employee.name}</h4>
+                    <h5 class="card-subtitle mb-2 text-warning">${employeeInfo.role}</h5>
+                    <h6 class="card-subtitle mb-2 text-dark">ID: ${employee.id}</h6>
+                    <p class="card-text">School: ${employee.school}</p>
+                    <a href="mailto:${employee.email}" class="card-link text-dark">Email: ${employee.email}</a>
+                </div>
+            </div>
+
+    
+            </div>
+        </div>
+
+
+
+    </div>
+
 
 </body>
 
