@@ -9,4 +9,13 @@ const Manager = require("./lib/Manager");
 
 // each Employee created will become a card. 
 
+const employeePrompt = [
+    {
+        type: "list",
+        message: "Select the Role of new Team Member",
+        name: "role",
+        choices: ["Manager", "Engineer", "Intern"],
+    },
 
+    
+]
