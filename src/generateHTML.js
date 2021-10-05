@@ -39,18 +39,82 @@ const createInternCard = (employee) => {
 </div>`;
 }
 
-generateHTML = (data) => {
+generateHtmlCards = (data) => {
     const cardArray = [];
 
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
-        const role = Employee.getRole();
+        const role = employee.getRole();
 
         if (role === "Manager") {
             const managerCard = createManagerCard(employee);
             cardArray.push(managerCard);
         }
+
+        if (role === "Engineer") {
+            const engineerCard = createEngineerCard(employee);
+            cardArray.push(engineerCard);
+        }
+
+        if (role === "Intern") {
+            const internCard = createInternCard(employee);
+            cardArray.push(internCard);
+        }
+
     }
+
+    const employeeCards = cardArray.join("");
+    console.log(cardArray);
+
+    const generateTeam = generateTeamHtml(employeeCards)
+    return generateTeam;
 }
 
-module.exports = generateHTML;
+generateTeamHtml = (employeeCards) => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Team Profile</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;600;700&family=Montserrat:wght@400;500&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+    
+    <body>
+        <header>
+            <div class="jumbotron jumbotron-fluid text-center bg-danger">
+                <div class="container">
+                    <h1 class="display-4 meetTeam">Meet the Team!</h1>
+    
+                </div>
+            </div>
+        </header>
+    
+        <div class="container">
+            <div class="row justify-content-center">
+                ${employeeCards}    
+                </div>
+            </div>
+    
+    
+    
+        </div>
+    
+    
+    </body>
+    
+    </html>`
+}
+
+
+module.exports = generateHtmlCards;

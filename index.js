@@ -5,13 +5,8 @@ const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-
-// add validation to each prompt to ensure proper user input
-
-// each Employee created will become a card. 
-
+const generateHtmlCards = require("./src/generateHTML");
 const teamMemberArray = [];
-
 const employeePrompt = [
     {
         type: "list",
@@ -29,7 +24,8 @@ const employeePrompt = [
                 return console.log("Please enter Team Member name");
             }
             return true;
-        }
+        },
+        default: "John Doe"
     },
 
     {
@@ -41,7 +37,8 @@ const employeePrompt = [
                 return console.log("Please enter Team Member ID number");
             }
             return true;
-        }
+        },
+        default: "12345"
     },
 
     {
@@ -53,7 +50,8 @@ const employeePrompt = [
                 return console.log("Please enter Team Member email address");
             }
             return true;
-        }
+        },
+        default: "test@test.test"
     },
 
     {
@@ -67,6 +65,7 @@ const employeePrompt = [
             return true;
         },
         when: (answer) => answer.role === "Manager",
+        default: "A4120"
     },
 
     {
@@ -80,6 +79,7 @@ const employeePrompt = [
             return true;
         },
         when: (answer) => answer.role === "Engineer",
+        default: "githubuser1234"
     },
 
     {
@@ -93,6 +93,7 @@ const employeePrompt = [
             return true;
         },
         when: (answer) => answer.role === "Intern",
+        default: "College University"
     },
 
     {
@@ -133,10 +134,13 @@ const addEmployee = () => {
             if (confirmAddEmployee) {
                 return addEmployee();
             } else {
-                return console.log(teamMemberArray);
+                return teamMemberArray;
             }
         })
-}
+};
 
-
-addEmployee();
+addEmployee()
+    .then(teamMemberArray => {
+        fs.writeFile("./dist/index.html", generateHtmlCards(teamMemberArray), (err) =>
+        err ? console.error(err) : console.log("Your HTML Page has been generated"))
+    })
