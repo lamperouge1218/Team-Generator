@@ -1,5 +1,3 @@
-const Employee = require("../lib/Employee");
-
 // create Manager Card
 const createManagerCard  = (employee) => {
     return `<div class="card text-center bg-info" style="width: 18rem;">
