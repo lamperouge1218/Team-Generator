@@ -6,7 +6,7 @@
 
 This application generates a list of cards for members of a team. There are three roles: Manager, Engineer, and Intern. Each one has a corresponding card on an HTML page that is generated based on user input using the Inquirer NPM package. 
 
-A link to the video of this project in action: [Test of Application]()
+Here is a link to the video of this project in action: [Test of Application](https://youtu.be/CcbbgRdlYAo)
 
 ## Table of Contents
 
