@@ -1,5 +1,5 @@
 // create Manager Card
-const createManagerCard  = (employee) => {
+const createManagerCard = (employee) => {
     return `<div class="card text-center bg-info" style="width: 18rem;">
     <div class="card-body">
         <h4 class="card-title">${employee.name}</h4>
@@ -37,28 +37,30 @@ const createInternCard = (employee) => {
 </div>`;
 }
 
+// Function to generate the cards that are placed into the HTML page using a switch case statement
+// Also calls the generateTeamHtml function after the cards have been generated
 generateHtmlCards = (data) => {
     const cardArray = [];
 
     for (let i = 0; i < data.length; i++) {
         const employee = data[i];
         const role = employee.getRole();
-
-        if (role === "Manager") {
-            const managerCard = createManagerCard(employee);
-            cardArray.push(managerCard);
+        switch (role) {
+            case "Manager":
+                const managerCard = createManagerCard(employee);
+                cardArray.push(managerCard);
+                break;
+            case "Engineer":
+                const engineerCard = createEngineerCard(employee);
+                cardArray.push(engineerCard);
+                break;
+            case "Intern":
+                const internCard = createInternCard(employee);
+                cardArray.push(internCard);
+                break;
+            default:
+                break;
         }
-
-        if (role === "Engineer") {
-            const engineerCard = createEngineerCard(employee);
-            cardArray.push(engineerCard);
-        }
-
-        if (role === "Intern") {
-            const internCard = createInternCard(employee);
-            cardArray.push(internCard);
-        }
-
     }
 
     const employeeCards = cardArray.join("");
@@ -68,6 +70,7 @@ generateHtmlCards = (data) => {
     return generateTeam;
 }
 
+// Generates the boilerplate of the HTML page and has a spot at line 106 to add the HTML cards generated above
 generateTeamHtml = (employeeCards) => {
     return `
     <!DOCTYPE html>

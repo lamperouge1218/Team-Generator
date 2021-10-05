@@ -1,6 +1,6 @@
+// Requires and needed consts
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const generateHTML = require("./src/generateHTML");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -97,6 +97,7 @@ const employeePrompt = [
     },
 ]
 
+// Primary function of the app. Adds employees and is able to have the relevant information based on role
 const addEmployee = () => {
     return inquirer
         .prompt(employeePrompt)
@@ -132,6 +133,7 @@ const addEmployee = () => {
         })
 };
 
+// Calls the addEmployee function and then writes the HTML page based on the teamMemberArray
 addEmployee()
     .then(teamMemberArray => {
         fs.writeFile("./dist/index.html", generateHtmlCards(teamMemberArray), (err) =>
