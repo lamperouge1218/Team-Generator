@@ -18,7 +18,7 @@ const createEngineerCard = (employee) => {
         <h4 class="card-title">${employee.name}</h4>
         <h5 class="card-subtitle mb-2 text-warning">Engineer</h5>
         <h6 class="card-subtitle mb-2 text-dark">ID: ${employee.id}</h6>
-        <a href="https://github.com/${employee.gitHub}" target="_blank" class="text-dark">GitHub: ${employee.gitHub}</a>
+        <a href="https://github.com/${employee.gitHub}" target="_blank" class="text-dark">GitHub: ${employee.gitHub}</a><br>
         <a href="mailto:${employee.email}" class="text-dark">Email: ${employee.email}</a>
     </div>
 </div>`;
@@ -92,7 +92,7 @@ generateTeamHtml = (employeeCards) => {
         <header>
             <div class="jumbotron jumbotron-fluid text-center bg-danger">
                 <div class="container">
-                    <h1 class="display-4 meetTeam">Meet the Team!</h1>
+                    <h1 class="display-4 meetTeam">Our Team!</h1>
     
                 </div>
             </div>
