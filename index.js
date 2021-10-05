@@ -24,7 +24,6 @@ const employeePrompt = [
             }
             return true;
         },
-        default: "John Doe"
     },
 
     {
@@ -37,7 +36,6 @@ const employeePrompt = [
             }
             return true;
         },
-        default: "12345"
     },
 
     {
@@ -50,7 +48,6 @@ const employeePrompt = [
             }
             return true;
         },
-        default: "test@test.test"
     },
 
     {
@@ -64,7 +61,6 @@ const employeePrompt = [
             return true;
         },
         when: (answer) => answer.role === "Manager",
-        default: "A4120"
     },
 
     {
@@ -78,7 +74,6 @@ const employeePrompt = [
             return true;
         },
         when: (answer) => answer.role === "Engineer",
-        default: "githubuser1234"
     },
 
     {
@@ -92,7 +87,6 @@ const employeePrompt = [
             return true;
         },
         when: (answer) => answer.role === "Intern",
-        default: "College University"
     },
 
     {
