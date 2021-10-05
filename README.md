@@ -26,7 +26,7 @@ Here is a link to the video of this project in action: [Test of Application](htt
   
 To install necessary dependencies, run the following command:
 
-    N/A
+    npm i
 
 ## Usage
 
